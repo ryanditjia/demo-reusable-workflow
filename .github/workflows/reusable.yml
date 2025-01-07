@@ -13,6 +13,9 @@ on:
       compression:
         required: true
         type: string
+    secrets:
+      web-player-repo-pat:
+        required: true
 
 jobs:
   update-web-player-registry:
@@ -22,7 +25,7 @@ jobs:
       - name: Update Web Player Registry
         uses: ryanditjia/demo-actions@registry
         with:
-          web-player-repo-pat: ${{ secrets.WEB_PLAYER_REPO_PAT }}
+          web-player-repo-pat: ${{ secrets.web-player-repo-pat }}
           web-player-env: ${{ inputs.web-player-env }}
           game-name: ${{ inputs.game-name }}
           url-prefix: ${{ inputs.url-prefix }}
